@@ -42,6 +42,7 @@ public class SampleServlet extends HttpServlet {
 		response.setContentType("text/html");
 		response.getWriter().println("Testing Success");
 		System.out.println("Server replied with following message from client: hi " +request.getContextPath());
+		System.out.println("Inserted a print statement");
 	}
 
 }
