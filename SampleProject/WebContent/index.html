@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Sample Assignment</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="sampleStyle.css" />
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="sampleScript.js"></script>
+</head>
+<body>
+	<form id="form1" name="form1" action="SampleServlet" method="post"
+		enctype="multipart/form-data" accept-charset="UTF-8">
+		<div>
+			<h4>Drag the image in to the red border canvas.</h4>
+			<canvas id="graphCanvas" height=300 width=300 ondrop="drop(event)"
+				ondragover="allowDrop(event)"></canvas>
+			<img id="img1" src="images/img1.png" draggable="true"
+				onmousedown="mousedown(event)" ondragstart="dragstart(event)">
+		</div>
+		<div>
+			<input type="submit" id="submitBtn" value="SAVE"
+				class="btn btn-success" />
+		</div>
+	</form>
+</body>
+</html>
