@@ -1,99 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Sample Assignment</title>
 
-<link rel="stylesheet" type="text/css" media="all" href="sampleStyle.css" />
-<link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="css/starter-template.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="joint.css" />
+<title>Organizational Modeling</title>
 
-<script src="lodash.min.js"></script>
-<script src="backbone-min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="sampleScript.js"></script>
-<script src="js/joint.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" />
+
+<link rel="stylesheet" type="text/css" href="css/offcanvas.css" />
 
 </head>
 
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
 
-    <div class="container">
-
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
-
-    </div><!-- /.container -->
-	<form id="form1" name="form1" action="SampleServlet" method="post"
-		enctype="multipart/form-data" accept-charset="UTF-8">
-		<div>
-			<h4>Drag the image in to the red border canvas.</h4>
-			<canvas id="graphCanvas" height=300 width=300 ondrop="drop(event)"
-				ondragover="allowDrop(event)"></canvas>
-			<img id="img1" src="images/img1.png" draggable="true"
-				onmousedown="mousedown(event)" ondragstart="dragstart(event)">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<div class="navbar-brand">Organizational Modeling</div>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
 		</div>
-		<div>
-			<input type="submit" id="submitBtn" value="SAVE"
-				class="btn btn-success" />
+	</nav>
+
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<div class="col-xs-12 col-sm-9">
+				<p class="pull-right visible-xs">
+					<button type="button" class="btn btn-primary btn-xs"
+						data-toggle="offcanvas">Toggle nav</button>
+				</p>
+				<div class="jumbotron">
+					<h1>Hello </h1>
+					<p> Design your organizational model using the below options.</p>
+				</div>
+				<div class="row">
+					<div class="col-xs-6 col-lg-4">
+						<h2>Abstract Goal View</h2>
+						<p>Model abstract goals of your organization, by clicking the below start button</p>
+						<p>
+							<a class="btn btn-default" href="#" role="button"> Start &raquo;</a>
+						</p>
+					</div>
+					<!--/.col-xs-6.col-lg-4-->
+					<div class="col-xs-6 col-lg-4">
+						<h2>Strategy View</h2>
+						<p>Model strategies of your organization, by clicking the below start button</p>
+						<p>
+							<a class="btn btn-default" href="#" role="button">Start &raquo;</a>
+						</p>
+					</div>
+					<!--/.col-xs-6.col-lg-4-->
+					<div class="col-xs-6 col-lg-4">
+						<h2>Concrete Goal View</h2>
+						<p>Model concrete goals of your organization, by clicking the below start button</p>
+						<p>
+							<a class="btn btn-default" href="#" role="button">Start &raquo;</a>
+						</p>
+					</div>
+					<!--/.col-xs-6.col-lg-4-->
+				</div>
+				<!--/row-->
+			</div>
+			<!--/.col-xs-12.col-sm-9-->
+
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+				<div class="list-group">
+					<a href="#" class="list-group-item active">List Abstract goals</a> <a href="#"
+						class="list-group-item">List Strategies</a> <a href="#"
+						class="list-group-item">List Concrete goals</a>
+				</div>
+			</div>
+			<!--/.sidebar-offcanvas-->
 		</div>
-	</form>
-	<div id="myholder"></div>
-	 <script type="text/javascript">
+		<!--/row-->
 
-    var graph = new joint.dia.Graph;
 
-    var paper = new joint.dia.Paper({
-        el: $('#myholder'),
-        width: 600,
-        height: 200,
-        model: graph,
-        gridSize: 1
-    });
+	</div>
+	<!--/.container-->
 
-    var rect = new joint.shapes.basic.Rect({
-        position: { x: 100, y: 30 },
-        size: { width: 100, height: 30 },
-        attrs: { rect: { fill: 'blue' }, text: { text: 'my box', fill: 'white' } }
-    });
 
-    var rect2 = rect.clone();
-    rect2.translate(300);
 
-    var link = new joint.dia.Link({
-        source: { id: rect.id },
-        target: { id: rect2.id }
-    });
 
-    graph.addCells([rect, rect2, link]);
 
-  </script>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/offcanvas.js"></script>
 </body>
 </html>
