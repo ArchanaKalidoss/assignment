@@ -1,0 +1,36 @@
+<html ng-app="orgModel">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
+    <script>
+      var orgModel = angular.module('orgModel', ['ngRoute']);
+      orgModel.config(function($routeProvider) {
+        $routeProvider.
+          when('/', {
+            templateUrl: 'abstractGoal-list.html',
+            controller: 'AbstractGoalsListCtrl'
+          }).
+          when('/:goalName', {
+            templateUrl: 'abstractGoal-detail.html',
+            controller: 'AbstractGoalsDetailCtrl'
+          }).
+          otherwise({
+            redirectTo: '/'
+          });
+      });
+      orgModel.controller('AbstractGoalsListCtrl', function ($scope, $http){
+        $http.get('abstractGoals.json').success(function(data) {
+          $scope.abstractGoals = data;
+        });
+      });
+      orgModel.controller('AbstractGoalsDetailCtrl', function ($scope, $routeParams){
+        $scope.name = $routeParams.goalName;
+      });
+    </script>
+  </head>
+  <body>
+    <div ng-view></div>
+  </body>
+</html>
